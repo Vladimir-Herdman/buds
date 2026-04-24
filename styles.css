@@ -2,6 +2,7 @@
   --button-color-main: #de2424;
   --button-color-bright: #ff5d5d;
   --button-color-shadow: #850000;
+  --button-diameter: 200px;
 }
 
 * {
@@ -17,24 +18,37 @@ body {
 }
 
 #button {
-  width:200px;
-  height:200px;
+  width: var(--button-diameter);
+  height: var(--button-diameter);
   margin-left:-50px;
   margin-top:-50px;
-  left:40%;
-  top:40%;
-  position:absolute;
+  left: 40%;
+  top: 40%;
+  position: relative;
   background: var(--button-color-main);
-  border-radius:100px;
-  box-shadow:inset -2px 2px 2px 0px var(--button-color-bright),inset 2px -2px 2px 0px var(--button-color-shadow),1px 1px 0 0 var(--button-color-main),2px 2px 0 0 var(--button-color-main),3px 3px 0 0 var(--button-color-main),4px 4px 0 0 var(--button-color-main),5px 5px 0 0 var(--button-color-main),6px 6px 0 0 var(--button-color-main),7px 7px 0 0 var(--button-color-main),8px 8px 0 0 var(--button-color-main),9px 9px 0 0 var(--button-color-main),10px 10px 0 0 var(--button-color-main),11px 11px 0 0 var(--button-color-main),12px 12px 0 0 var(--button-color-shadow),13px 13px 0 0 var(--button-color-shadow),14px 14px 0 0 var(--button-color-shadow),15px 15px 0 0 var(--button-color-shadow),16px 16px 0 0 var(--button-color-shadow),17px 17px 0 0 var(--button-color-shadow),18px 18px 0 0 var(--button-color-shadow),19px 19px 0 0 var(--button-color-shadow),20px 20px 0 0 var(--button-color-shadow),19px 21px 1px 1px var(--button-color-shadow);
+  border-radius: 100px;
+  box-shadow: inset -2px 2px 2px 0px var(--button-color-bright),inset 2px -2px 2px 0px var(--button-color-shadow),1px 1px 0 0 var(--button-color-main),2px 2px 0 0 var(--button-color-main),3px 3px 0 0 var(--button-color-main),4px 4px 0 0 var(--button-color-main),5px 5px 0 0 var(--button-color-main),6px 6px 0 0 var(--button-color-main),7px 7px 0 0 var(--button-color-main),8px 8px 0 0 var(--button-color-main),9px 9px 0 0 var(--button-color-main),10px 10px 0 0 var(--button-color-main),11px 11px 0 0 var(--button-color-main),12px 12px 0 0 var(--button-color-shadow),13px 13px 0 0 var(--button-color-shadow),14px 14px 0 0 var(--button-color-shadow),15px 15px 0 0 var(--button-color-shadow),16px 16px 0 0 var(--button-color-shadow),17px 17px 0 0 var(--button-color-shadow),18px 18px 0 0 var(--button-color-shadow),19px 19px 0 0 var(--button-color-shadow),20px 20px 0 0 var(--button-color-shadow),19px 21px 1px 1px var(--button-color-shadow);
   transition: all 0.4s ease-out;
-  cursor:pointer;
+  cursor: pointer;
+  &::after {
+    border: solid blue 3px;
+    content: "";
+    position: fixed;
+    width: var(--button-diameter);
+    height: var(--button-diameter);
+    margin-left:-50px;
+    margin-top:-50px;
+    left: 40%;
+    top: 40%;
+    border-radius: 100px;
+  }
+  
   &:active {
     transition: all 0.15s ease-out;
     margin-left:-31px;
     margin-top:-31px;
     background: var(--button-color-main);
-    box-shadow:inset -2px 2px 2px 0px var(--button-color-bright),inset 2px -2px 2px 0px var(--button-color-shadow),1px 1px 0 0 var(--button-color-shadow),1px 1px 0 0 var(--button-color-shadow),1px 1px 0 0 var(--button-color-shadow),1px 1px 0 0 var(--button-color-shadow),1px 1px 0 0 var(--button-color-shadow),1px 1px 0 0 var(--button-color-shadow),1px 1px 0 0 var(--button-color-shadow),1px 1px 0 0 var(--button-color-shadow),1px 1px 0 0 var(--button-color-shadow),1px 1px 0 0 var(--button-color-shadow),1px 1px 0 0 var(--button-color-shadow),1px 1px 0 0 var(--button-color-shadow),1px 1px 0 0 var(--button-color-shadow),1px 1px 0 0 var(--button-color-shadow),1px 1px 0 0 var(--button-color-shadow),1px 1px 0 0 var(--button-color-shadow),1px 1px 0 0 var(--button-color-shadow),1px 1px 0 0 var(--button-color-shadow),1px 1px 0 0 var(--button-color-shadow),1px 1px 0 0 var(--button-color-shadow),1px 1px 2px 1px var(--button-color-shadow);
+    box-shadow: inset -2px 2px 2px 0px var(--button-color-bright),inset 2px -2px 2px 0px var(--button-color-shadow),1px 1px 0 0 var(--button-color-shadow),1px 1px 0 0 var(--button-color-shadow),1px 1px 0 0 var(--button-color-shadow),1px 1px 0 0 var(--button-color-shadow),1px 1px 0 0 var(--button-color-shadow),1px 1px 0 0 var(--button-color-shadow),1px 1px 0 0 var(--button-color-shadow),1px 1px 0 0 var(--button-color-shadow),1px 1px 0 0 var(--button-color-shadow),1px 1px 0 0 var(--button-color-shadow),1px 1px 0 0 var(--button-color-shadow),1px 1px 0 0 var(--button-color-shadow),1px 1px 0 0 var(--button-color-shadow),1px 1px 0 0 var(--button-color-shadow),1px 1px 0 0 var(--button-color-shadow),1px 1px 0 0 var(--button-color-shadow),1px 1px 0 0 var(--button-color-shadow),1px 1px 0 0 var(--button-color-shadow),1px 1px 0 0 var(--button-color-shadow),1px 1px 0 0 var(--button-color-shadow),1px 1px 2px 1px var(--button-color-shadow);
   }
   & span {
     color: white;
@@ -47,5 +61,6 @@ body {
     margin-inline: auto; 
     width: fit-content;
     height: fit-content;
+    pointer-events: none;
   }
 }
