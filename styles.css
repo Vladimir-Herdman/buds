@@ -15,6 +15,21 @@ body {
   width: 100vw;
   height: 100vh;
   position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+#inputsection {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  & label, & button {
+    margin-top: 20px;
+  }
+}
+
+#display {
+  flex-grow: 1;
 }
 
 #button {
@@ -22,8 +37,8 @@ body {
   height: var(--button-diameter);
   margin-left:-50px;
   margin-top:-50px;
-  left: 40%;
-  top: 40%;
+  left: 10%;
+  top: 20%;
   position: relative;
   background: var(--button-color-main);
   border-radius: 100px;
@@ -31,7 +46,6 @@ body {
   transition: all 0.4s ease-out;
   cursor: pointer;
   &::after {
-    border: solid blue 3px;
     content: "";
     position: fixed;
     width: var(--button-diameter);

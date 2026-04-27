@@ -5,22 +5,44 @@
     <title>Time Logger</title>
     <link rel="stylesheet" href="./styles.css">
   </head>
-  <body>
-    <div id="button">
-      <span>Run Code</span>
+  <body id="body">
+
+    <div id=inputsection>
+      <label for="officehours">Office Hours:</label>
+      <input type="number" id="officehours" name="officehours" placeholder="Enter name">
+
+      <button id="excelfilepath">Select Excel File</button>
+      <span id="filepath_display">File:</span>
+
+      <label for="unavailablehours">Unavailable Hours:</label>
+      <input type="unavailablehours" id="unavailablehours" name="unavailablehours" placeholder="Enter name">
+    </div>
+
+    <div id="display">
+      <div id="button">
+        <span>Run Code</span>
+      </div>
     </div>
 
     <script>
       const button = document.getElementById("button");
+      const officehours_input = document.getElementById("officehours");
+      const excelfilepath_input = document.getElementById("excelfilepath");
+      const excelfilepath_display = document.getElementById("filepath_display");
+      const unavailablehours_input = document.getElementById("unavailablehours");
 
-      button.addEventListener("click", (e) => {
-        pywebview.api.play_sound();
+      excelfilepath_input.addEventListener("click", async (e) => {
+        const res = await pywebview.api.open_file_dialog();
+        excelfilepath_display.innerHTML = res;
       });
 
-      async function main() {
-        return;
-      }
-      main();
+      button.addEventListener("click", (e) => {
+        pywebview.api.button_pressed([
+          Number(officehours_input.value),
+          excelfilepath_display.innerHTML,
+          unavailablehours_input.value,
+        ]);
+      });
 
     </script>
   </body>
