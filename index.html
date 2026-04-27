@@ -22,6 +22,12 @@
       <div id="button">
         <span>Run Code</span>
       </div>
+      <div id="result">
+        <p>Optimal Office Hours: </p>
+        <p id=res1_display>[]</p>
+        <p>Student Coverage: </p>
+        <p id=res2_display>()</p>
+      </div>
     </div>
 
     <script>
@@ -31,17 +37,28 @@
       const excelfilepath_display = document.getElementById("filepath_display");
       const unavailablehours_input = document.getElementById("unavailablehours");
 
+      const res1_display = document.getElementById("res1_display");
+      const res2_display = document.getElementById("res2_display");
+
       excelfilepath_input.addEventListener("click", async (e) => {
         const res = await pywebview.api.open_file_dialog();
         excelfilepath_display.innerHTML = res;
       });
 
-      button.addEventListener("click", (e) => {
-        pywebview.api.button_pressed([
+      button.addEventListener("click", async (e) => {
+        const res = await pywebview.api.button_pressed([
           Number(officehours_input.value),
           excelfilepath_display.innerHTML,
           unavailablehours_input.value,
         ]);
+
+        //val: [['M9', 'F11', 'F1'], 20, 20, 100]
+        const [selected_times, covered_students, total_students, coverage_percent] = res;
+        res1_display.innerHTML = `${selected_times}`;
+        res2_display.innerHTML = `${covered_students}/${total_students} (%${coverage_percent})`;
+        // <!-- Optimal Office Hours: ['M9', 'F11', 'F1'] -->
+        // <!-- Student Coverage: 20.0/20 (100.0%) -->
+
       });
 
     </script>

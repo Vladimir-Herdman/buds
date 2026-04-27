@@ -30,6 +30,23 @@ body {
 
 #display {
   flex-grow: 1;
+  position: relative;
+  & #result {
+    background: grey;
+    border-radius: 10px;
+    padding: 10px;
+    position: absolute;
+    top: 10%;
+    right: 5%;
+    width: calc(80% - var(--button-diameter));
+    height: 40%;
+    & p:not([id]) {
+      font-weight: bold;
+      font-size: 20px;
+      font-family: 'Times New Roman', Times, serif;
+      margin-top: 10px;
+    }
+  }
 }
 
 #button {
